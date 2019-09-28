@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 @Injectable({ providedIn: 'root' })
 export class PokemonService {
   private pokemonListFetched = new Subject<any>();
+  private pokemonFetched = new Subject<any>();
 
   constructor(private http: HttpClient) { }
 
@@ -27,6 +28,20 @@ export class PokemonService {
 
   getPokemonListListener() {
     return this.pokemonListFetched.asObservable();
+  }
+
+  getPokemon(name: string) {
+    this.http
+      .get<any>(
+        'https://pokeapi.co/api/v2/pokemon/' + name
+      )
+      .subscribe(pokemon => {
+        this.pokemonFetched.next(pokemon);
+      });
+  }
+
+  getPokemonListener() {
+    return this.pokemonFetched.asObservable();
   }
 
 }

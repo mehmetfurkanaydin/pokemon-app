@@ -1,0 +1,34 @@
+<div class="spinner-border" role="status" *ngIf="loading">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="card" *ngIf="!loading">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand"><img [src]="pokemon.sprites.front_default"></a>
+        <p class="navbar-text">{{ pokemon.name }}</p>
+      </div>
+    </div>
+  </nav>
+  <div class="card">
+    <div class="card-header">
+      Types
+    </div>
+    <div class="card-body">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let type of pokemon.types">{{ type.type.name }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Moves
+    </div>
+    <div class="card-body">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let move of pokemon.moves">{{ move.move.name }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
