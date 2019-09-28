@@ -1,0 +1,7 @@
+<ol class="breadcrumb">
+    <ng-container *ngFor="let breadcrumbLabel of breadcrumbList; let i=index">
+        <li class="breadcrumb-item">
+          <a [routerLink]="breadcrumbLinksList[i]">{{breadcrumbLabel !== "" ? breadcrumbLabel : "PokeApp"}}</a>
+        </li>
+    </ng-container>
+</ol>

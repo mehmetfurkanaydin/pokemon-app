@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PokeViewComponent } from './poke-view/poke-view.component';
 import { PokeListComponent } from './poke-list/poke-list.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { FilterPipe } from './poke-list/filter.pipe';
 import { PokeDetailComponent } from './poke-detail/poke-detail.component';
 
@@ -16,7 +17,8 @@ import { PokeDetailComponent } from './poke-detail/poke-detail.component';
     PokeViewComponent,
     PokeListComponent,
     FilterPipe,
-    PokeDetailComponent
+    PokeDetailComponent,
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule,
