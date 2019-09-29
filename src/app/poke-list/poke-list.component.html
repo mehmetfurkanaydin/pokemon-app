@@ -1,4 +1,7 @@
-<div class="card justify-content-center align-items-center">
+<div *ngIf="error">
+  <p>{{ error }}</p>
+</div>
+<div *ngIf="!error" class="card justify-content-center align-items-center">
   <div class="input-group mb-3">
     <div class="input-group-prepend">
       <span class="input-group-text" id="basic-addon1">Filter</span>

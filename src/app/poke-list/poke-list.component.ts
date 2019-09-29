@@ -10,8 +10,9 @@ import { PokemonService } from '../services/pokemon.service';
 })
 export class PokeListComponent implements OnInit, OnDestroy {
   pokeListSub: Subscription;
-  pokeButtonList: String[];
+  pokeButtonList: object[];
   searchText: String;
+  error: string;
 
   constructor(private pokemonService: PokemonService) {
     this.pokemonService.getPokemonList();
@@ -21,7 +22,11 @@ export class PokeListComponent implements OnInit, OnDestroy {
     // listen pokemon list fetch and display list on page
     this.pokeListSub = this.pokemonService.getPokemonListListener()
     .subscribe((pokeList) => {
-      this.pokeButtonList = pokeList;
+      if (pokeList.error) {
+        this.error = pokeList.error;
+      } else {
+        this.pokeButtonList = pokeList;
+      }
     });
   }
 
