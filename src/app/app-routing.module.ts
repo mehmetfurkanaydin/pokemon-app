@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: '', component: PokeViewComponent },
   { path: 'pokemon', component: PokeListComponent },
   { path: 'pokemon/:name', component: PokeDetailComponent },
+  { path: '**', redirectTo: '' } // redirect to home page if url is invalid
 ];
 
 @NgModule({

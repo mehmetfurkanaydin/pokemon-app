@@ -18,6 +18,7 @@ export class PokeListComponent implements OnInit, OnDestroy {
    }
 
   ngOnInit() {
+    // listen pokemon list fetch and display list on page
     this.pokeListSub = this.pokemonService.getPokemonListListener()
     .subscribe((pokeList) => {
       this.pokeButtonList = pokeList;

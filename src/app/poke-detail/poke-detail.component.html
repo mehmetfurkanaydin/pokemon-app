@@ -1,7 +1,10 @@
 <div class="spinner-border" role="status" *ngIf="loading">
   <span class="sr-only">Loading...</span>
 </div>
-<div class="card" *ngIf="!loading">
+<div *ngIf="error">
+  <p>{{ error }}</p>
+</div>
+<div class="card" *ngIf="!loading && !error">
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">

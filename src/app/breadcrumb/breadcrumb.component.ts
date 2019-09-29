@@ -14,6 +14,7 @@ export class BreadcrumbComponent implements OnInit {
   }
 
   ngOnInit() {
+    // listen NavigationEnd and update the breadcrumb
     this.router.events.subscribe((event: RouterEvent) => {
       if (event instanceof NavigationEnd) {
         this.breadcrumbList = [];
@@ -23,6 +24,7 @@ export class BreadcrumbComponent implements OnInit {
     });
   }
 
+  // build beadcrumb by splitting current route
   private buildBreadcrumbs() {
     if (this.router.url === "/") {
       this.breadcrumbList = [""];

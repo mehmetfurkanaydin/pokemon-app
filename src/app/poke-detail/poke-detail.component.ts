@@ -13,6 +13,7 @@ export class PokeDetailComponent implements OnInit, OnDestroy {
   pokeSub: Subscription;
   pokemon: object;
   loading: boolean;
+  error: string;
 
   constructor(private pokemonService: PokemonService, private route: ActivatedRoute) {
     this.pokemonService.getPokemon(this.route.snapshot.paramMap.get('name'));
@@ -20,9 +21,14 @@ export class PokeDetailComponent implements OnInit, OnDestroy {
    }
 
    ngOnInit() {
+    // listen pokemon fetch and display details on page
     this.pokeSub = this.pokemonService.getPokemonListener()
     .subscribe((pokemon) => {
-      this.pokemon = pokemon;
+      if (pokemon.error) {
+        this.error = pokemon.error;
+      } else {
+        this.pokemon = pokemon;
+      }
       this.loading = false;
     });
   }

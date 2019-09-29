@@ -23,6 +23,8 @@ export class PokemonService {
       }))
       .subscribe(pokemonList => {
         this.pokemonListFetched.next(pokemonList);
+      }, (err) => {
+        this.pokemonListFetched.next(err);
       });
   }
 
@@ -37,6 +39,8 @@ export class PokemonService {
       )
       .subscribe(pokemon => {
         this.pokemonFetched.next(pokemon);
+      }, (err) => {
+        this.pokemonFetched.next(err);
       });
   }
 
